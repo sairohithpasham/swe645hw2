@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>STUDENT SURVEY FORM</title>
+  <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+</head>
+<style>
+  fieldset {
+    background-color: #06a154;
+    border-color: #040404;
+    border: 8px solid black;
+  }
+
+  legend {
+    background-color: black;
+    color: white;
+  }
+
+  input {
+    margin: 15px;
+  }
+
+  #div1 {
+    border: 1px solid;
+    padding: 5px;
+    box-shadow: 5px 10px rgb(9, 9, 9);
+  }
+
+  table {
+    width: 100%; 
+    border-collapse: collapse; 
+    margin: 0 auto;
+  }
+
+  td, th 
+  {
+			padding: 10px;
+			text-align: left;
+      font-size: 20px
+  }
+</style>
+
+<body style="background-color: #f3ca4f">
+  <div id="div1">
+    <h1>
+      <center style="background-color: #1f9e5e;color:#0a0a0a">STUDENT SURVEY FORM</center>
+    </h1>
+  </div>
+  <form method="post" autocomplete="on">
+    <h2>Enter Details</h2>
+    <form autocomplete="on" action="Surveyform.html" method="post"><br>
+      <fieldset>
+        <legend>Personal Information</legend>
+        <table class="w3-table">
+          <tr>
+            <td><label>First Name *</label></td>
+            <td><input id="Firstname" type="text" required autofocus /></td>
+          </tr>
+          <tr>
+            <td><label>Last Name *</label></td>
+            <td><input id="Lastname" type="text" required autofocus /></td>
+          </tr>
+          <tr>
+            <td><label>Street Address</label></td>
+            <td><input id="addr" type="text" /></td>
+          </tr>
+          <tr>
+            <td><label>City</label></td>
+            <td><input id="city" type="text" /></td>
+          </tr>
+          <tr>
+            <td><label>State</label></td>
+            <td><input id="state" type="text" /></td>
+          </tr>
+          <tr>
+            <td><label>Zip Code</label></td>
+            <td><input id="zip" type="number" pattern="^\d{5}(?:[-\s]\d{4})?$" /></td>
+          </tr>
+          <tr>
+            <td><label>Telephone No.</label></td>
+            <td><input id="telephone" type="tel" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"
+                placeholder="(xxx) xxx-xxxx" /></td>
+          </tr>
+          <tr>
+            <td><label>Email Id. *</label></td>
+            <td><input id="email" type="email" required placeholder="xxxx@gmail.com" /></td>
+          </tr>
+          <tr>
+            <td><label>Date of Survey</label></td>
+            <td><input id="date" type="date" placeholder="MM/DD/YYYY" /></td>
+          </tr>
+        </table>
+      </fieldset>
+      <fieldset>
+        <legend>Feedback</legend>
+        <table class="w3-table">
+          <tr>
+            <td><label>What did you like the most about GMU?</label></td>
+            <td><input name="likes" type="checkbox" value="0" />Students<br>
+              <input name="likes" type="checkbox" value="1" />Location <br>
+              <input name="likes" type="checkbox" value="2" />Campus <br>
+              <input name="likes" type="checkbox" value="3" />Atmosphere<br>
+              <input name="likes" type="checkbox" value="4" />Dorm Rooms<br>
+              <input name="likes" type="checkbox" value="5" />Sports
+            </td>
+          </tr>
+          <tr>
+            <td><label>How did you hear about George Mason? *</label></td>
+            <td><input name="interest" type="radio" value="0" required />Friends<br> 
+              <input name="interest" type="radio" value="1" required />Television<br>
+              <input name="interest" type="radio" value="2" required />Internet<br>
+              <input name="interest" type="radio" value="3" required />Other<br>
+            </td>
+          </tr>
+          <tr>
+            <td><label>Additional Comments</label></td>
+            <td><textarea name="other"></textarea></td>
+          </tr>
+          <tr>
+            <td><label>How likey are you to recommend GMU to
+                others? *</label></td>
+            <td><select id="recommend">
+                <option>--Select--</option>
+                <option>Very Likey</option>
+                <option>Likey</option>
+                <option>Unlikey</option>
+              </select></td>
+          </tr>
+        </table>
+      </fieldset>
+      <fieldset>
+        <legend>Try your luck to win a free movie ticket</legend>
+        <table>
+          <tr>
+            <td>
+              <label>Raffel</label>
+            </td>
+            <td>
+              <input id="data" type="text" />
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+      <div class="w3-container">
+        <p style="color:rgb(12, 12, 12); font-size:75% ;">* marked fields are mandatory
+          <input type="submit" class="w3-button w3-green" value="Submit" />
+          <input type="reset" class="w3-button w3-yellow" value="Reset" />
+        </p>
+      </div>
+    </form>
+    <p><a href="https://www.gmu.edu/">
+        <img src="GMU_Logo.jpg" width="80" height="70" style="position:fixed; bottom:0px; right:0px"></a></p>
+  </form>
+</body>
+
+</html>

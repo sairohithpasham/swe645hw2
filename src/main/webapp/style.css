@@ -1,0 +1,20 @@
+fieldset {
+    background-color: #06a154;
+    border-color: #040404;
+    border: 8px solid black;
+}
+
+legend {
+    background-color: black;
+    color: white;
+}
+
+input {
+    margin: 15px;
+}
+
+#div1 {
+    border: 1px solid;
+    padding: 5px;
+    box-shadow: 5px 10px rgb(9, 9, 9);
+}
