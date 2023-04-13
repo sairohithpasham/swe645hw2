@@ -10,7 +10,7 @@ pipeline {
          steps {
             script{
                sh 'rm -rf *.war'
-               sh 'jar -cvf Survey.war -C src/main/webapp/ .'
+               sh 'jar -cvf 645HW1.war -C src/main/webapp/ .'
                //sh 'echo ${BUILD_TIMESTAMP}'
                sh "docker build -t sairohithpasham/studentsurvey:${env.TIMESTAMP} ."
                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -29,7 +29,7 @@ pipeline {
       stage('Update Deployment') {
          steps {
             script{
-               sh "kubectl set image deployment/newdeployment container-0=sairohithpasham/studentsurvey:${env.TIMESTAMP}"
+               sh "kubectl set image deployment/hw container-0=sairohithpasham/studentsurvey:${env.TIMESTAMP}"
             }
          }
       }
@@ -37,7 +37,7 @@ pipeline {
       stage('Update LoadBalancer') {
          steps {
             script{
-               sh 'kubectl rollout restart deploy newdeployment -n default'
+               sh 'kubectl rollout restart deploy hw -n default'
             }
          }
       }
