@@ -1,6 +1,6 @@
 pipeline {
    environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockid')
+        DOCKERHUB_CREDENTIALS = credentials('dockerid')
         TIMESTAMP = new Date().format("yyyyMMdd_HHmmss")
     }
    agent any
@@ -12,7 +12,7 @@ pipeline {
                sh 'rm -rf *.war'
                sh 'jar -cvf Survey.war -C src/main/webapp/ .'
                //sh 'echo ${BUILD_TIMESTAMP}'
-               sh "docker build -t ramiyappan/studentsurvey:${env.TIMESTAMP} ."
+               sh "docker build -t sairohithpasham/studentsurvey:${env.TIMESTAMP} ."
                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
          }
@@ -21,7 +21,7 @@ pipeline {
       stage('Push Image') {
          steps {
             script{
-                  sh "docker push ramiyappan/studentsurvey:${env.TIMESTAMP}"
+                  sh "docker push sairohithpasham/studentsurvey:${env.TIMESTAMP}"
             }
          }
       }
@@ -29,7 +29,7 @@ pipeline {
       stage('Update Deployment') {
          steps {
             script{
-               sh "kubectl set image deployment/newdeployment container-0=ramiyappan/studentsurvey:${env.TIMESTAMP}"
+               sh "kubectl set image deployment/newdeployment container-0=sairohithpasham/studentsurvey:${env.TIMESTAMP}"
             }
          }
       }
